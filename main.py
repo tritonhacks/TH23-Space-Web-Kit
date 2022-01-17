@@ -4,15 +4,16 @@ import requests
 
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
+from starlette.responses import RedirectResponse
 
 app = FastAPI()
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/home", StaticFiles(directory="static"), name="static")
 fish_watch_api = 'https://www.fishwatch.gov/api/species/'
 
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return RedirectResponse(url="/home/index.html")
 
 
 @app.get("/search/{name}")
@@ -22,6 +23,7 @@ def read_item(name: Optional[str] = ""):
         raise HTTPException(status_code=404, detail=res.reason)
 
     decoded = res.json()
+    
     if len(decoded) == 0:
         # TODO: Fix statuscode for no results found
         raise HTTPException(status_code=404, detail="No results found")
