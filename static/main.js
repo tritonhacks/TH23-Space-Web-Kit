@@ -3,23 +3,12 @@ const fishwatchEndpoint = 'http://127.0.0.1:5000/search/'
 // Use this to load in auto-complete results
 document.addEventListener("DOMContentLoaded", async function () {
     let searchButton = document.getElementById("submit")
-    let results = await fetch(fishwatchEndpoint, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-        }
-    });
-    
-    //let decoded = await results.json()
-    //console.log(typeof(decoded))
-    //console.log(typeof(decoded[0]))
     
     searchButton.addEventListener("click", async function(event) {
         event.preventDefault() // Prevent page redirection
         
         let fish = document.getElementById('query').value;
-        let resultsDisplay = document.getElementById('results');
+        let resultsDisplay = document.getElementById('result-text');
         let imageDisplay = document.getElementById("result-image");
         
         let results = await fetch(fishwatchEndpoint + fish, {
@@ -44,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         let imageURL = decoded[0]["Image Gallery"][Math.floor(Math.random() * decoded[0]["Image Gallery"].length)].src
         
         imageDisplay.src = `${imageURL}`
-        resultsDisplay.innerHTML += description;
+        resultsDisplay.innerHTML = description;
     })
 })
 

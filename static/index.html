@@ -9,25 +9,26 @@
     <script type="text/javascript" src="main.js"></script>
 </head>
 
-<body>
-    <header>
+<body class="background">
+    <header class="text-center">
         <h1>Ocean Animal-pedia</h1>
     </header>
-    <section>
+    <div class="searchBar">
         <form id="form" method="" action="" onsubmit="submit()">
-            <input type="text" autocomplete="off" class="search" id="query" />
+            <input type="text" autocomplete="off" class="search" id="query" placeholder="Type fish name. . ."/>
             <span class="button-wrapper">
                 <button id="submit" class="button">
                     <img class="btn-img" src="https://images-na.ssl-images-amazon.com/images/I/41gYkruZM2L.png" />
                 </button>
             </span>
         </form>
-    </section>
-    <section id="results">
+    </div>
+    <div id="results">
         <!-- Display the search results here, modify the contents of index.html here via js.-->
         <h2 id="result-header"></h2>
         <img id="result-image"></img>
-    </section>
+        <p id="result-text"></p>
+    </div>
 </body>
 
 </html>
