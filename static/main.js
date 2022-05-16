@@ -53,9 +53,23 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         console.log(images)
         console.log(decoded)
-        let imageURL = images[Math.floor(Math.random() * images.length)].src
+        /*
+            This function returns a random number between 0 and max that is then stored in getRandomIndex.
+        */
+        const getRandomIndex = function(max) {
+            return Math.floor(Math.random() * max)
+        }
+        
+        /*
+            This function returns an element of inArray at a random index, using our function above. 
+            Here, it returns a random URL that will act as the source of an image.
+        */
+        const getRandomElementFromArray = function(inArray) {
+            return inArray[getRandomIndex(inArray.length)]
+        }
 
-        imageDisplay.src = `${imageURL}`
+
+        imageDisplay.src = getRandomElementFromArray(images).src
         resultsDisplay.innerHTML = description;
         resultsHeader.innerHTML = decoded["Species Name"]
         resultLocation.innerHTML = decoded["Location"]
