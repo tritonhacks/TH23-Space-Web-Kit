@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Hello, world!</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/2613/PNG/512/astronomy_jupiter_galaxy_planet_space_system_universe_icon_156875.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+    <!-- Solution -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript" src="{{ url_for('static', path='result.js') }}"></script>
+</head>
+
+<body class="background text-center">
+    <header class="text-center general-text header">
+        <h2>Let's look at some pictures from space.</h2>
+    </header>
+
+    <div class="general-text">
+        <form required>
+            <p>Enter a date:</p>
+            <p>
+                <input type="date" id="entered_date" size="8" placeholder="mm/dd/yyyy" class="input">
+                <span>
+                    <button id="date_form" class="button">View</button>
+                </span>
+            </p>
+        </form>      
+    </div>
+
+
+    <button id="curr_date_form" class="button center">Today's Image!</button>
+
+    
+    <div id="res_box" class="container" style="visibility: hidden;">
+        <div class="image">
+            <img id="space_picture">
+        </div>
+        <div class="text general-text">
+            <h4 id="pic_title"></h3>
+            <p id="pic_date"></p>
+            <p id="pic_desc"></p>
+        </div>
+    </div>
+
+
+    <div id="home-btn">
+        <form action="/" method="get">
+            <button id="return_home" class="button center">Home</button>
+        </form> 
+    </div>
+
+</body>
+
+</html>
