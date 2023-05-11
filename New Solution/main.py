@@ -15,6 +15,10 @@ templates = Jinja2Templates(directory="templates")
 def read_root(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
+@app.get("/sample_image")
+def read_root(request: Request):
+    return "https://api.nasa.gov/assets/img/general/apod.jpg"
+
 @app.get("/explore")
 def read_rood(request: Request):
     return templates.TemplateResponse("explorePage.html", {"request": request})

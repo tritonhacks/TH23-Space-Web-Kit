@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         methods: 'GET'
     });
     decoded = await results.json()
-    button.addEventListener("click", async function(){
+    button.addEventListener("click", async function(event){
         image.src = decoded
         image.style.height = "auto"
         image.style.width = "800px"

@@ -13,15 +13,8 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/")
 def read_root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("part2.html", {"request": request})
 
-@app.get("/sample_image")
-def read_root(request: Request):
-    return "https://api.nasa.gov/assets/img/general/apod.jpg"
-
-@app.get("/explore")
-def read_rood(request: Request):
-    return templates.TemplateResponse("explorePage.html", {"request": request})
 
 if __name__ == "__main__":
     uvicorn.run(app, host="localhost", port=5000, log_level="info")
